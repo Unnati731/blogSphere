@@ -1,13 +1,13 @@
 package com.unnati.blog.repository;
 
-import com.unnati.blog.model.Post;
+import com.unnati.blog.model.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface PostRepository extends JpaRepository<Post, Long> {
+public interface CommentRepository extends JpaRepository<Comment, Long > {
 
-    List<Post> findAllByNameContaining(String name);
+    List<Comment> findByPostId(Long postId);
 }

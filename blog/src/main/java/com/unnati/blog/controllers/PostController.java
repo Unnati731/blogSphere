@@ -50,4 +50,25 @@ public class PostController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
     }
+
+    @PutMapping("/{postId}/like")
+    public ResponseEntity<?> likePost(@PathVariable Long postId){
+        try{
+            postService.likePost(postId);
+            return ResponseEntity.ok(new String[]{"Post liked successfully"});
+        } catch(Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/search/{name}")
+    public  ResponseEntity<?> searchByName(@PathVariable String name){
+        try{
+            return ResponseEntity.status(HttpStatus.OK).body(postService.searchByName(name));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+
 }
