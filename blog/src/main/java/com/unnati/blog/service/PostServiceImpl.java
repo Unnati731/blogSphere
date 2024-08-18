@@ -29,7 +29,7 @@ public class PostServiceImpl implements PostService {
         return postRepository.findAll();
     }
 
-    public Post getPostsById(Long postId){
+    public Post getPostById(Long postId){
         Optional<Post> optionalPost = postRepository.findById(postId);
         if(optionalPost.isPresent()){
             Post post = optionalPost.get();

@@ -42,9 +42,9 @@ public class PostController {
     }
 
     @GetMapping("/{postId}")
-    public ResponseEntity<?> getPostById(@PathVariable Long postId){
+    public ResponseEntity<?> getPostById(@PathVariable("postId") Long postId){
         try{
-            Post post = postService.getPostsById(postId);
+            Post post = postService.getPostById(postId);
             return  ResponseEntity.ok(post);
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());

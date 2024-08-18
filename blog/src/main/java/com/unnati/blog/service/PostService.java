@@ -13,7 +13,7 @@ public interface PostService {
 
     List<Post> getAllPosts();
 
-    Post getPostsById(Long postId);
+    Post getPostById(Long postId);
 
     public void likePost(Long postId);
 
